@@ -136,7 +136,7 @@ h2 {
     text-align: center;
 }
 
-#progressbar {
+#progressBar {
     width: 25vw;
     height: 3vh;
     border: 2px solid blue;
@@ -145,7 +145,7 @@ h2 {
     overflow: hidden;
 }
 
-#progressbarfull {
+#progressBarFull {
     background: blue;
    height: 3vh;
     width: 0;
