@@ -10,9 +10,6 @@
 
 }
 
-.header {
-    display: right;
-}
 
 h1 {
     font-size: 50px;
@@ -24,7 +21,8 @@ h2 {
     margin-bottom: 40px;
 }
 
-.container {
+
+.container, .quiz {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -34,8 +32,8 @@ h2 {
     padding: 20px;
     margin: 0 auto;
     background-color: white;
+}   
 
-}
 
 .flex-column {
     display: flex;
@@ -87,4 +85,9 @@ h2 {
 
 }
 
+.quiz{
+    width: 550px;
+    background: white;
+    border-radius: 5px;
+}
 
