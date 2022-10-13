@@ -22,7 +22,7 @@ h2 {
 }
 
 
-.container, .quiz {
+.container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -85,9 +85,69 @@ h2 {
 
 }
 
-.quiz{
-    width: 550px;
-    background: white;
-    border-radius: 5px;
+.option {
+    display: flex;
+    margin: 5px;
+    width: 30vw;
+    height: 7vh;
+    border-radius: 40px;
+    background: chocolate;
+    font-size: 20px;
+    min-width: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.option:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    transition: 0.03;
+    transform: scale(1.03);
+}
+
+.option-prefix {
+    padding: 10px 10px;
+}
+
+.option-text {
+    padding: 30px;
+    width: 100%;
+}
+
+.correct {
+    background: forestgreen;
+}
+
+.incorrect {
+    background: red;
+}
+
+#progress-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-prefix {
+    text-align: center;
+    font-size: 20px;
+}
+
+.main-text {
+    text-align: center;
+}
+
+#progressbar {
+    width: 25vw;
+    height: 3vh;
+    border: 2px solid blue;
+    margin-top: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressbarfull {
+    background: blue;
+   height: 3vh;
+    width: 0;
 }
 
