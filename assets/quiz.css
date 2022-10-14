@@ -1,0 +1,39 @@
+
+
+.correct {
+    background: forestgreen;
+}
+
+.incorrect {
+    background: red;
+}
+
+#progress-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-prefix {
+    text-align: center;
+    font-size: 20px;
+}
+
+.main-text {
+    text-align: center;
+}
+
+#progressBar {
+    width: 25vw;
+    height: 3vh;
+    border: 2px solid blue;
+    margin-top: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressBarFull {
+    background: blue;
+   height: 3vh;
+    width: 0;
+}
+
