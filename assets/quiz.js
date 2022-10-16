@@ -1,8 +1,8 @@
-const question = document.querySelector('#question');
-const option = Array.from(document.querySelectorAll('.option-text'));
-const progressText = document.querySelector('#progressText');
-const scoreText = document.querySelector('#score');
-const progressBarFull = document.querySelector('#question');
+const question = document.querySelector('#question')
+const option = Array.from(document.querySelectorAll('.option-text'))
+const progressText = document.querySelector('#progressText')
+const scoreText = document.querySelector('#score')
+const progressBarFull = document.querySelector('#progressBarFull')
 
 
 let currentQuestion = {}
@@ -14,37 +14,37 @@ let availableQuestions = []
 let questions = [
     {
         question: 'What is the outer most color of the rainbow?',
-        choice1: 'purple'
-        choice2: 'red'
-        choice3: 'yellow'
-        answer: '2'
+        option1: 'purple',
+        option2: 'red',
+        option3: 'yellow',
+        answer: '2',
     },
 
 
     {
         question: 'How many continents are there in the world?',
-        choice1: '10'
-        choice2: '5'
-        choice3: '7'
-        answer: '3'
+        option1: '10',
+        option2: '5',
+        option3: '7',
+        answer: '3',
     },
 
 
     {
         question: 'What do humans mostly breathe in?',
-        choice1: 'nitrogen'
-        choice2: 'oxygen'
-        choice3: 'carbon dioxide'
-        answer: '2'
+        option1: 'nitrogen',
+        option2: 'oxygen',
+        option3: 'carbon dioxide',
+        answer: '2',
     },
 
 
     {
         question: 'What is the freezing temperature of water?',
-        choice1: '40 °F'
-        choice2: '22 °F'
-        choice3: '32 °F'
-        answer: '3'
+        option1: '40 °F',
+        option2: '22 °F',
+        option3: '32 °F',
+        answer: '3',
     }
 ]
 
@@ -55,10 +55,10 @@ startQuiz = () => {
     questionCounter = 0
     score = 0
     availableQuestions = [...questions]
-    getNewQuestions()
+    getNewQuestion()
 }
 
-getNewQuestions = () => {
+getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
@@ -66,7 +66,7 @@ getNewQuestions = () => {
     }
 
         questionCounter++
-        progressText.innerText `Question ${questionCounter} of ${MAX_QUESTIONS}`
+        progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
         progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
         const questionsIndex = Math.floor(Math.random() *availableQuestions.length)
@@ -74,9 +74,9 @@ getNewQuestions = () => {
         question.innerText = currentQuestion.question
 
 
-        choices.forEach(choice => {
-            const number = choice.dataset['number']
-            choice.innerText = currentQuestion['choice' + number]
+        option.forEach(choice => {
+            const number = option.dataset['number']
+            option.innerText = currentQuestion['option' + number]
         })
 
         availableQuestions.splice(questionsIndex, 1)
@@ -86,13 +86,13 @@ getNewQuestions = () => {
     
 }
 
-choices.forEach(choice => {
-    choice.addEventListener('click', e => {
+option.forEach(option => {
+    option.addEventListener('click', e => {
         if(!acceptingAnswers) return
 
         acceptingAnswers = false
-        const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
+        const selectedOption = e.target
+        const selectedAnswer = selectedOption.dataset['number']
 
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
         
@@ -100,10 +100,10 @@ choices.forEach(choice => {
             incrementScore(SCORE_POINTS)
         }
 
-        selectedChoice.parentElement.classList.add(classToApply)
+        selectedOption.parentElement.classList.add(classToApply)
         
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
+            selectedOption.parentElement.classList.remove(classToApply)
             getNewQuestions()
 
         }, 1000)
@@ -117,4 +117,4 @@ incrementScore = num => {
 
 }
 
-startGame()
+startQuiz()
