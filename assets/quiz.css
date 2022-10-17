@@ -18,6 +18,11 @@
     font-size: 20px;
 }
 
+.option-text {
+    padding: 30px;
+    width: 100%;
+}
+
 .main-text {
     text-align: center;
 }

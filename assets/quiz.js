@@ -17,7 +17,7 @@ let questions = [
         option1: 'purple',
         option2: 'red',
         option3: 'yellow',
-        answer: '2',
+        answer: 2,
     },
 
 
@@ -26,7 +26,7 @@ let questions = [
         option1: '10',
         option2: '5',
         option3: '7',
-        answer: '3',
+        answer: 3,
     },
 
 
@@ -35,7 +35,7 @@ let questions = [
         option1: 'nitrogen',
         option2: 'oxygen',
         option3: 'carbon dioxide',
-        answer: '2',
+        answer: 2,
     },
 
 
@@ -44,7 +44,7 @@ let questions = [
         option1: '40 °F',
         option2: '22 °F',
         option3: '32 °F',
-        answer: '3',
+        answer: 3,
     }
 ]
 
@@ -69,12 +69,11 @@ getNewQuestion = () => {
         progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
         progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
-        const questionsIndex = Math.floor(Math.random() *availableQuestions.length)
+        const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
         currentQuestion = availableQuestions[questionsIndex]
         question.innerText = currentQuestion.question
 
-
-        option.forEach(choice => {
+         option.forEach(option => {
             const number = option.dataset['number']
             option.innerText = currentQuestion['option' + number]
         })
@@ -104,7 +103,7 @@ option.forEach(option => {
         
         setTimeout(() => {
             selectedOption.parentElement.classList.remove(classToApply)
-            getNewQuestions()
+            getNewQuestion()
 
         }, 1000)
 
